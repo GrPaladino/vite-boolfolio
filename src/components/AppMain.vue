@@ -1,4 +1,6 @@
 <script>
+import AppProjectList from './AppProjectList.vue';
+
 // import { store } from "../store";
 
 export default {
@@ -8,8 +10,7 @@ export default {
     };
   },
 
-  components: {
-  },
+  components: { AppProjectList },
 
   methods: {
   },
@@ -17,6 +18,9 @@ export default {
 </script>
 
 <template>
+  <app-project-list />
+  
+ 
 </template>
 
 <style lang="scss" scoped>

@@ -1,16 +1,15 @@
 <script>
-// Global state store
-// import { store } from "./store";
-
 // Import components
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 import AppFooter from "./components/AppFooter.vue";
+import { store } from "./store";
 
 export default {
   data() {
     return {
-      // store,
+      title: 'Boolfolio frontend'
+      
     };
   },
 
@@ -23,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <app-header />
+  <app-header :title="title" />
   <app-main />
   <app-footer />
 </template>
