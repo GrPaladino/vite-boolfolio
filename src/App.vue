@@ -1,21 +1,19 @@
 <script>
 // Import components
 import AppHeader from "./components/AppHeader.vue";
-import AppMain from "./components/AppMain.vue";
 import AppFooter from "./components/AppFooter.vue";
-import { store } from "./store";
+import { RouterView } from "vue-router";
 
 export default {
   data() {
     return {
-      title: 'Boolfolio frontend'
-      
+      title: "Boolfolio frontend",
     };
   },
 
   components: {
     AppHeader,
-    AppMain,
+    RouterView,
     AppFooter,
   },
 };
@@ -23,7 +21,9 @@ export default {
 
 <template>
   <app-header :title="title" />
-  <app-main />
+  <div class="container">
+    <router-view />
+  </div>
   <app-footer />
 </template>
 

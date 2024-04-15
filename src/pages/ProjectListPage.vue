@@ -1,8 +1,8 @@
 <script>
 import { store, api } from "../store";
 import axios from "axios";
-import AppProjectCard from "./AppProjectCard.vue";
-import AppPagination from "./AppPagination.vue";
+import AppProjectCard from "../components/AppProjectCard.vue";
+import AppPagination from "../components/AppPagination.vue";
 
 export default {
   data() {

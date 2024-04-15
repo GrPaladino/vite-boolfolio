@@ -1,9 +1,9 @@
 <script>
-// import { store } from "../store";
+import { RouterLink } from "vue-router";
+
 export default {
   data() {
     return {
-      // store,
       title: "Boolfolio",
     };
   },
@@ -18,11 +18,23 @@ export default {
 <template>
   <nav class="navbar bg-body-tertiary">
     <div class="container">
-      <ul class="p-0">
+      <ul class="p-0 d-flex">
         <li>
-          <a class="navbar-brand" href="#">
+          <router-link :to="{ name: 'home' }" class="navbar-brand">
             {{ title }}
-          </a>
+          </router-link>
+        </li>
+
+        <li>
+          <router-link :to="{ name: 'home' }" class="navbar-brand">
+            Home
+          </router-link>
+        </li>
+
+        <li>
+          <router-link :to="{ name: 'projects' }" class="navbar-brand">
+            Blog
+          </router-link>
         </li>
       </ul>
     </div>
