@@ -32,7 +32,7 @@ export default {
         </li>
 
         <li>
-          <router-link :to="{ name: 'projects' }" class="navbar-brand">
+          <router-link :to="{ name: 'project.index' }" class="navbar-brand">
             Blog
           </router-link>
         </li>
