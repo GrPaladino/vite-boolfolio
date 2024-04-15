@@ -4,31 +4,36 @@ export default {
   data() {
     return {
       // store,
-      title: 'Boolfolio'
+      title: "Boolfolio",
     };
   },
-props: {
-  title: String,
-},
+  props: {
+    title: String,
+  },
 
-  methods: {
-},
-
-}
+  methods: {},
+};
 </script>
 
 <template>
   <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      {{title}}
-    </a>
-  </div>
-</nav>
+    <div class="container">
+      <ul class="p-0">
+        <li>
+          <a class="navbar-brand" href="#">
+            {{ title }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <style lang="scss" scoped>
 @use "../style/partials/mixins" as *;
 @use "../style/partials/variables" as *;
 
+ul {
+  list-style: none;
+}
 </style>
