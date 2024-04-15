@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <app-project-card :project="project" :isDefined="true" />
+  <app-project-card v-if="project" :project="project" :isDefined="true" />
 </template>
 
 <script lang="scss" scoped></script>

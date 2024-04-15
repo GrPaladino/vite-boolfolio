@@ -54,28 +54,40 @@ export default {
 
   <div v-if="isDefined">
     <h1 class="card-title mt-3">{{ project.title }}</h1>
+
     <div class="d-flex mt-5">
-      <div class="img me-5" style="width: 18rem">
-        <img :src="project.image" alt="" />
+      <div class="img me-5">
+        <img
+          :src="project.image ? project.image : 'https://picsum.photos/200/300'"
+          alt=""
+          id="img" />
       </div>
       <div class="card-body d-flex flex-column justify-content-between">
         <div class="description">
           <p class="card-text">{{ project.description }}</p>
           <p>
-            <strong>Tipologia: </strong
-            >{{ project.type ? project.type : "Nessuna tipologia" }}
+            <strong>Tipologia: </strong>
+            <span
+              class="badge mt-3"
+              :style="'background-color: ' + project.type.color"
+              >{{ project.type.label }}</span
+            >
           </p>
           <p>
             <strong>Tecnologie utilizzate: </strong>
 
-            <!-- <span v-for="project.technologies"></span>($project->technologies as $technology) {!! $technology ?
-            $technology->getBadge() : 'Nessuna tecnologia' !!}  -->
+            <span
+              v-for="tech in project.technologies"
+              class="badge mt-3 me-2"
+              :style="'background-color: ' + tech.color"
+              >{{ tech.label }}</span
+            >
           </p>
-        </div>
-        <div class="links text-start">
-          <a :href="project.github_url" class="mb-3"
-            ><i class="fa-brands fa-github link-dark fa-2xl me-3"></i
-          ></a>
+          <div class="links text-start mt-4">
+            <a :href="project.github_url"
+              ><i class="fa-brands fa-github link-dark fa-2xl"></i
+            ></a>
+          </div>
         </div>
       </div>
     </div>
@@ -95,6 +107,15 @@ export default {
       height: 100%;
       object-fit: cover;
     }
+  }
+}
+.img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  #img {
+    display: block;
+    width: 100%;
   }
 }
 </style>
