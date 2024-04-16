@@ -19,7 +19,7 @@ export default {
   <nav class="navbar bg-body-tertiary">
     <div class="container">
       <ul class="p-0 d-flex">
-        <li>
+        <li class="nav-item">
           <router-link :to="{ name: 'home' }" class="navbar-brand">
             {{ title }}
           </router-link>

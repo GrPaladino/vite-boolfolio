@@ -26,28 +26,32 @@ export default {
       </div>
 
       <div class="card-body">
-        <span
-          class="badge mb-3"
-          :style="'background-color: ' + project.type.color"
-          >{{ project.type.label }}</span
-        >
+        <div class="card-top">
+          <span
+            class="badge mb-3"
+            :style="'background-color: ' + project.type.color"
+            >{{ project.type.label }}</span
+          >
 
-        <h5 class="card-title">{{ project.title }}</h5>
-        <p class="card-text">{{ project.description }}</p>
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text mt-3">{{ project.description }}</p>
+        </div>
+
         <router-link
           :to="{ name: 'project.show', params: { slug: project.slug } }"
-          class="btn btn-primary"
+          class="btn btn-primary my-3"
+          id="button"
           >Dettagli</router-link
         >
       </div>
 
-      <div class="card-footer">
+      <div class="card-footer" v-if="project.technologies.length">
         <span
           v-for="technology in project.technologies"
           class="badge mb-3"
           :style="'background-color: ' + technology.color"
-          >{{ technology.label }}</span
-        >
+          >{{ technology.label }}
+        </span>
       </div>
     </div>
   </div>
@@ -106,6 +110,15 @@ export default {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    #button {
+      width: 100px;
     }
   }
 }

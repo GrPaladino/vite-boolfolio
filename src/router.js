@@ -5,6 +5,8 @@ import ProjectListPage from "./pages/ProjectListPage.vue";
 import ProjectPage from "./pages/ProjectPage.vue";
 
 const router = createRouter({
+  linkActiveClass: "active",
+  linkExactActiveClass: "active",
   history: createWebHistory(),
   routes: [
     {
