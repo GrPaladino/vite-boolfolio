@@ -12,6 +12,7 @@ export default {
       type: null,
     };
   },
+  // props: { type_id: [Number, Boolean] },
 
   components: { AppProjectCard, AppPagination },
 
@@ -56,10 +57,7 @@ export default {
       {{ type_id ? "Tipologia " + type.label : "Blog" }}
     </h1>
     <div class="row row-cols-4 g-3">
-      <app-project-card
-        v-for="project in store.projects"
-        :project="project"
-        :key="type_id" />
+      <app-project-card v-for="project in store.projects" :project="project" />
     </div>
 
     <app-pagination @change-page="fetchProjects" :pagination="pagination" />

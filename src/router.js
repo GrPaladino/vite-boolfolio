@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import HomePage from "./pages/HomePage.vue";
-import ProjectListPage from "./pages/ProjectListPage.vue";
+import ProjectListPage from "./components/ProjectListPage.vue";
 import ProjectPage from "./pages/ProjectPage.vue";
 import NotFoundPage from "./pages/NotFoundPage.vue";
+import BlogPage from "./pages/BlogPage.vue";
 
 const router = createRouter({
   linkActiveClass: "active",
@@ -18,7 +19,7 @@ const router = createRouter({
     {
       path: "/blog",
       name: "project.index",
-      component: ProjectListPage,
+      component: BlogPage,
     },
     {
       path: "/blog/:slug",
