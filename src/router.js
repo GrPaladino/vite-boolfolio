@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
 import ProjectListPage from "./pages/ProjectListPage.vue";
 import ProjectPage from "./pages/ProjectPage.vue";
+import NotFoundPage from "./pages/NotFoundPage.vue";
 
 const router = createRouter({
   linkActiveClass: "active",
@@ -23,6 +24,11 @@ const router = createRouter({
       path: "/blog/:slug",
       name: "project.show",
       component: ProjectPage,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: NotFoundPage,
     },
   ],
 });

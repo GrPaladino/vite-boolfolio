@@ -16,7 +16,11 @@ export default {
   created() {
     const projectSlug = this.$route.params.slug;
     axios.get(api.baseUrl + `projects/${projectSlug}`).then((response) => {
-      this.project = response.data;
+      if (response.data.success) {
+        this.project = response.data.result;
+      } else {
+        this.$router.push({ name: "not-found" });
+      }
     });
   },
 };
