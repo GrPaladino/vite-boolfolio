@@ -9,16 +9,37 @@ export default {
     return {
       store,
       pagination: [],
+      type: null,
     };
   },
 
   components: { AppProjectCard, AppPagination },
 
+  computed: {
+    type_id() {
+      return this.$route.params.type_id
+        ? parseInt(this.$route.params.type_id)
+        : false;
+    },
+
+    projectEndpoint() {
+      if (this.type_id) {
+        return api.baseUrl + "project-by-type/ " + this.type_id;
+      } else {
+        return api.baseUrl + "projects";
+      }
+    },
+  },
+
   methods: {
-    fetchProjects(endpoint = api.baseUrl + "projects") {
+    fetchProjects(endpoint = this.projectEndpoint) {
       axios.get(endpoint).then((response) => {
-        store.projects = response.data.data;
-        this.pagination = response.data.links;
+        if (!response.data.success) {
+          return this.$router.push({ name: "not-found" });
+        }
+        store.projects = response.data.result.data;
+        this.pagination = response.data.result.links;
+        this.type = response.data.type;
       });
     },
   },
@@ -31,9 +52,14 @@ export default {
 
 <template>
   <div class="container">
-    <h1>I miei progetti</h1>
+    <h1 v-if="type" class="my-3">
+      {{ type_id ? "Tipologia " + type.label : "Blog" }}
+    </h1>
     <div class="row row-cols-4 g-3">
-      <app-project-card v-for="project in store.projects" :project="project" />
+      <app-project-card
+        v-for="project in store.projects"
+        :project="project"
+        :key="type_id" />
     </div>
 
     <app-pagination @change-page="fetchProjects" :pagination="pagination" />

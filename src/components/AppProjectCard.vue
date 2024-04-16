@@ -27,10 +27,14 @@ export default {
 
       <div class="card-body">
         <div class="card-top">
-          <span
+          <router-link
+            :to="{
+              name: 'project.filter-by-type',
+              params: { type_id: project.type.id },
+            }"
             class="badge mb-3"
             :style="'background-color: ' + project.type.color"
-            >{{ project.type.label }}</span
+            >{{ project.type.label }}</router-link
           >
 
           <h5 class="card-title">{{ project.title }}</h5>
