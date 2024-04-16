@@ -14,8 +14,8 @@ export default {
 
   components: { AppProjectCard },
   created() {
-    const projectId = this.$route.params.id;
-    axios.get(api.baseUrl + `projects/${projectId}`).then((response) => {
+    const projectSlug = this.$route.params.slug;
+    axios.get(api.baseUrl + `projects/${projectSlug}`).then((response) => {
       this.project = response.data;
     });
   },
